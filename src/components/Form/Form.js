@@ -64,8 +64,6 @@ export default class Form extends React.Component {
             <div className="form-container">
                 <form className="register-form" autoComplete="off">
                     {this.state.allValid && <div className="success-message">Success! Thank you for registering</div> }
-                    {/* Uncomment the next line to show the success message */}
-                    {/* <div className="success-message">Success! Thank you for registering</div> */}
                     <input
                         id="first-name"
                         value={this.state.firstNameData}
@@ -75,8 +73,6 @@ export default class Form extends React.Component {
                         name="firstName"
                         onChange={this.firstNamechangeHandler}
                     />
-                    {/* Uncomment the next line to show the error message */}
-                    {/* <span id="first-name-error">Please enter a first name</span> */}
                     {this.state.submitted && this.state.firstNameData.length === 0 && <span id="first-name-error">Please enter a first name</span>}
                     <input
                         id="last-name"
@@ -87,8 +83,6 @@ export default class Form extends React.Component {
                         name="lastName"
                         onChange={this.lastNameChangeHandler}
                     />
-                    {/* Uncomment the next line to show the error message */}
-                    {/* <span id="last-name-error">Please enter a last name</span> */}
                     {this.state.submitted && this.state.lastNameData.length === 0 && <span id="last-name-error">Please enter a last name</span>}
                     <input
                         id="email"
@@ -99,8 +93,6 @@ export default class Form extends React.Component {
                         name="email"
                         onChange={(event) => this.emailChangeHandler(event)}
                     />
-                    {/* Uncomment the next line to show the error message */}
-                    {/* <span id="email-error">Please enter an email address</span> */}
                     {this.state.submitted && this.state.emailData.length === 0 && <span id="email-error">Please enter an email address</span>}
                     <button className="form-field" type="submit" 
                         onClick={this.RegisterHandler}>
