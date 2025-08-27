@@ -41,11 +41,21 @@ export default class App extends React.Component {
 
     RegisterHandler (event) {
         event.preventDefault();
-        if(firstNameData && lastNameData && emailData){
+
+        if(this.state.firstNameData && this.state.lastNameData && this.state.emailData){
             this.setState(
                 {allValid: true}
             )
         }
+
+        this.setState(
+            {submitted: true}
+        )
+        setTimeout(() => {
+            this.setState(
+                {allValid: false}
+            )
+        }, 2000);
         
     }
 
@@ -54,6 +64,7 @@ export default class App extends React.Component {
         return (
             <div className="form-container">
                 <form className="register-form" autoComplete="off">
+                    {this.state.allValid && <div className="success-message">Success! Thank you for registering</div> }
                     {/* Uncomment the next line to show the success message */}
                     {/* <div className="success-message">Success! Thank you for registering</div> */}
                     <input
