@@ -34,6 +34,12 @@ export default class App extends React.Component {
         )
     }
 
+    emailChangeHandler (event){
+        this.setState(
+            {emailData: event.target.value}
+        )
+    }
+
 
     render() {
         return (
@@ -67,6 +73,7 @@ export default class App extends React.Component {
                         type="text"
                         placeholder="Email"
                         name="email"
+                        onChange={(event) => this.emailChangeHandler(event)}
                     />
                     {/* Uncomment the next line to show the error message */}
                     {/* <span id="email-error">Please enter an email address</span> */}
