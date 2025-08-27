@@ -101,7 +101,7 @@ export default class Form extends React.Component {
                     />
                     {/* Uncomment the next line to show the error message */}
                     {/* <span id="email-error">Please enter an email address</span> */}
-
+                    {this.state.submitted && this.state.emailData.length === 0 && <span id="email-error">Please enter an email address</span>}
                     <button className="form-field" type="submit" 
                         onClick={this.RegisterHandler}>
                         Register
