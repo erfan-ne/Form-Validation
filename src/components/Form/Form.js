@@ -1,7 +1,7 @@
 import React from "react";
 import "./Form.css";
 
-export default class App extends React.Component {
+export default class Form extends React.Component {
 
     constructor(props) {
         super(props)
@@ -42,15 +42,14 @@ export default class App extends React.Component {
     RegisterHandler (event) {
         event.preventDefault();
 
+        this.setState({submitted: true})
+
         if(this.state.firstNameData && this.state.lastNameData && this.state.emailData){
             this.setState(
                 {allValid: true}
             )
         }
 
-        this.setState(
-            {submitted: true}
-        )
         setTimeout(() => {
             this.setState(
                 {allValid: false}
@@ -69,6 +68,7 @@ export default class App extends React.Component {
                     {/* <div className="success-message">Success! Thank you for registering</div> */}
                     <input
                         id="first-name"
+                        value={this.state.firstNameData}
                         className="form-field"
                         type="text"
                         placeholder="First Name"
@@ -77,8 +77,10 @@ export default class App extends React.Component {
                     />
                     {/* Uncomment the next line to show the error message */}
                     {/* <span id="first-name-error">Please enter a first name</span> */}
+                    {this.state.submitted && this.state.firstNameData.length === 0 && <span id="first-name-error">Please enter a first name</span>}
                     <input
                         id="last-name"
+                        value={this.state.lastNameData}
                         className="form-field"
                         type="text"
                         placeholder="Last Name"
@@ -89,6 +91,7 @@ export default class App extends React.Component {
                     {/* <span id="last-name-error">Please enter a last name</span> */}
                     <input
                         id="email"
+                        value={this.state.emailData}
                         className="form-field"
                         type="text"
                         placeholder="Email"
