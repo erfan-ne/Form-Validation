@@ -18,11 +18,10 @@ export default class App extends React.Component {
 
         this.firstNamechangeHandler = this.firstNamechangeHandler.bind(this)
         this.lastNameChangeHandler = this.lastNameChangeHandler.bind(this)
+        this.RegisterHandler = this.RegisterHandler.bind(this)
     }
 
     firstNamechangeHandler (event){
-        console.log(event.target.value);
-        
         this.setState(
             {firstNameData: event.target.value}
         )   
@@ -38,6 +37,16 @@ export default class App extends React.Component {
         this.setState(
             {emailData: event.target.value}
         )
+    }
+
+    RegisterHandler (event) {
+        event.preventDefault();
+        if(firstNameData && lastNameData && emailData){
+            this.setState(
+                {allValid: true}
+            )
+        }
+        
     }
 
 
@@ -77,7 +86,8 @@ export default class App extends React.Component {
                     />
                     {/* Uncomment the next line to show the error message */}
                     {/* <span id="email-error">Please enter an email address</span> */}
-                    <button className="form-field" type="submit">
+                    <button className="form-field" type="submit" 
+                        onClick={this.RegisterHandler}>
                         Register
                     </button>
                 </form>
