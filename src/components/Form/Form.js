@@ -17,6 +17,7 @@ export default class App extends React.Component {
         }
 
         this.firstNamechangeHandler = this.firstNamechangeHandler.bind(this)
+        this.lastNameChangeHandler = this.lastNameChangeHandler.bind(this)
     }
 
     firstNamechangeHandler (event){
@@ -25,6 +26,12 @@ export default class App extends React.Component {
         this.setState(
             {firstNameData: event.target.value}
         )   
+    }
+
+    lastNameChangeHandler (event){
+        this.setState(
+            {lastNameData: event.target.value}
+        )
     }
 
 
@@ -50,6 +57,7 @@ export default class App extends React.Component {
                         type="text"
                         placeholder="Last Name"
                         name="lastName"
+                        onChange={this.lastNameChangeHandler}
                     />
                     {/* Uncomment the next line to show the error message */}
                     {/* <span id="last-name-error">Please enter a last name</span> */}
