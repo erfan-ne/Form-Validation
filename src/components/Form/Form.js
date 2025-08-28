@@ -18,7 +18,7 @@ export default class Form extends React.Component {
 
         this.firstNamechangeHandler = this.firstNamechangeHandler.bind(this)
         this.lastNameChangeHandler = this.lastNameChangeHandler.bind(this)
-        this.RegisterHandler = this.RegisterHandler.bind(this)
+        this.registerHandler = this.registerHandler.bind(this)
     }
 
     firstNamechangeHandler (event){
@@ -39,7 +39,7 @@ export default class Form extends React.Component {
         )
     }
 
-    RegisterHandler (event) {
+    registerHandler (event) {
         event.preventDefault();
 
         this.setState({submitted: true})
@@ -54,7 +54,7 @@ export default class Form extends React.Component {
             this.setState(
                 {allValid: false}
             )
-        }, 2000);
+        }, 2500);
         
     }
 
@@ -95,7 +95,7 @@ export default class Form extends React.Component {
                     />
                     {this.state.submitted && this.state.emailData.length === 0 && <span id="email-error">Please enter an email address</span>}
                     <button className="form-field" type="submit" 
-                        onClick={this.RegisterHandler}>
+                        onClick={this.registerHandler}>
                         Register
                     </button>
                 </form>
